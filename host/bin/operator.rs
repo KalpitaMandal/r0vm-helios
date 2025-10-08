@@ -113,7 +113,7 @@ impl R0VMHeliosOperator {
             .call()
             .await
             .unwrap()
-            .head
+            // .head
             .try_into()
             .unwrap();
         let period: u64 = contract
@@ -121,15 +121,15 @@ impl R0VMHeliosOperator {
             .call()
             .await
             .unwrap()
-            ._0
+            // ._0
             .try_into()
             .unwrap();
         let contract_next_sync_committee = contract
             .syncCommittees(U256::from(period + 1))
             .call()
             .await
-            .unwrap()
-            ._0;
+            .unwrap();
+            // ._0;
 
         // Setup client.
         let mut sync_committee_updates = get_updates(&client).await;
@@ -196,7 +196,7 @@ impl R0VMHeliosOperator {
         let seal = risc0_ethereum_contracts::encode_seal(&proof)?;
 
         let wallet_filler = ProviderBuilder::new()
-            .with_recommended_fillers()
+            // .with_recommended_fillers()
             .wallet(self.wallet.clone())
             .on_http(self.rpc_url.clone());
         let contract = R0VMHelios::new(self.contract_address, wallet_filler.clone());
@@ -252,7 +252,7 @@ impl R0VMHeliosOperator {
                 .unwrap_or_else(|e| {
                     panic!("Failed to get head. Are you sure the R0VMHelios is deployed to address: {:?}? Error: {:?}", self.contract_address, e)
                 })
-                .head
+                // .head
                 .try_into()
                 .unwrap();
 

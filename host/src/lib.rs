@@ -14,6 +14,7 @@ use helios_ethereum::{
 use std::sync::Arc;
 use tokio::sync::{mpsc::channel, watch};
 use tree_hash::TreeHash;
+use url::Url;
 
 pub const MAX_REQUEST_LIGHT_CLIENT_UPDATES: u8 = 128;
 
@@ -52,10 +53,11 @@ pub async fn get_checkpoint(slot: u64) -> B256 {
     let chain_id = std::env::var("SOURCE_CHAIN_ID").unwrap();
     let network = Network::from_chain_id(chain_id.parse().unwrap()).unwrap();
     let base_config = network.to_base_config();
+    let execution_rpc = "https://example.com".to_string();
 
     let config = Config {
-        consensus_rpc: consensus_rpc.to_string(),
-        execution_rpc: String::new(),
+        consensus_rpc: Url::parse(&consensus_rpc).unwrap(),
+        execution_rpc: Some(Url::parse(&execution_rpc).unwrap()),
         chain: base_config.chain,
         forks: base_config.forks,
         strict_checkpoint_age: false,
@@ -84,10 +86,11 @@ pub async fn get_client(checkpoint: B256) -> Inner<MainnetConsensusSpec, HttpRpc
     let chain_id = std::env::var("SOURCE_CHAIN_ID").unwrap();
     let network = Network::from_chain_id(chain_id.parse().unwrap()).unwrap();
     let base_config = network.to_base_config();
+    let execution_rpc = "https://example.com".to_string();
 
     let config = Config {
-        consensus_rpc: consensus_rpc.to_string(),
-        execution_rpc: String::new(),
+        consensus_rpc: Url::parse(&consensus_rpc).unwrap(),
+        execution_rpc: Some(Url::parse(&execution_rpc).unwrap()),
         chain: base_config.chain,
         forks: base_config.forks,
         strict_checkpoint_age: false,

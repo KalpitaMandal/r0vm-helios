@@ -1,0 +1,8 @@
+{
+  "lib/openzeppelin-contracts": {
+    "rev": "acd4ff74de833399287ed6b31b4debf6b2b35527"
+  },
+  "lib/risc0-ethereum": {
+    "rev": "38591d7a1302d437b76937bd3e0432005b33f616"
+  }
+}

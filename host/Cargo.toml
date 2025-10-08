@@ -29,13 +29,17 @@ serde_cbor = { workspace = true }
 clap = { workspace = true }
 log = { workspace = true }
 env_logger = { workspace = true }
+alloy-sol-types = { workspace = true }
 alloy-primitives = { workspace = true }
 alloy = { workspace = true }
+alloy-rlp = { workspace = true }
 anyhow = { workspace = true }
 cargo_metadata = { workspace = true }
 reqwest = { workspace = true }
 tree_hash = { workspace = true }
+tree_hash_derive = { workspace = true }
 serde_json = { workspace = true }
 alloy-trie = { workspace = true }
 risc0-zkvm = { workspace = true }
+url = { workspace = true }
 risc0-ethereum-contracts = "2.0.0-rc.3"
