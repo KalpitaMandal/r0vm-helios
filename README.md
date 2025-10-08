@@ -14,6 +14,8 @@ R0VM Helios has received an idependent security audit from zkSecurity. The repor
 - [Foundry](https://book.getfoundry.sh/getting-started/installation)
 - [RISC Zero](https://dev.risczero.com/api/zkvm/install)
 
+Note: Make sure to install r0vm 2.3.2 using command `rzup install r0vm 2.3.2`.
+
 ## Steps
 
 ### 1. Consensus RPC Setup
